@@ -1,18 +1,37 @@
 import React, { useState } from "react";
-import Head from "next/head";
+import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "../slices/counterSlice";
+import { RootState } from "../store";
 
 export default function Home() {
-  const [text, setText] = useState<string>("자바스크립트");
+  const count = useSelector((state: RootState) => state.counter.value);
 
-  setTimeout(() => {
-    setText("타입스크립트");
-  }, 1000);
+  const dispatch = useDispatch();
 
   return (
-    <div className="container">
-      <div>
-        <span>{text} 적용 완료</span>
+    <Wrap>
+      <div>{count}</div>
+      <div style={{ display: "flex" }}>
+        <Button onClick={() => dispatch(increment())}>+</Button>
+        <Button onClick={() => dispatch(decrement())}>-</Button>
       </div>
-    </div>
+    </Wrap>
   );
 }
+
+const Wrap = styled.div`
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  ${({ theme }) => theme.flexMixin("center", "center")}
+  flex-direction: column;
+`;
+
+const Button = styled.button`
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid black;
+  ${({ theme }) => theme.flexMixin("center", "center")}
+`;
