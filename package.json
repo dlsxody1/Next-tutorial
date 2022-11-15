@@ -9,16 +9,35 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.6",
+    "@types/next-redux-wrapper": "^3.0.0",
+    "@types/react-redux": "^7.1.24",
+    "@types/styled-components": "^5.1.26",
+    "babel-plugin-styled-components": "^2.0.7",
     "next": "13.0.0",
+    "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.2",
+    "react-redux": "^8.0.4",
+    "styled-components": "^5.3.6",
+    "styled-reset": "^4.4.2"
   },
   "devDependencies": {
     "@types/node": "18.11.8",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
-    "eslint": "8.26.0",
+    "@types/redux-logger": "^3.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "eslint": "^8.26.0",
     "eslint-config-next": "13.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "redux-logger": "^3.0.6",
     "typescript": "4.8.4"
   }
 }
