@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import { UserProps } from "../shared/LoginTypes";
-
+import Link from "next/link";
+import SignUp from "./auth/SignUp";
 const Login = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
 
@@ -57,11 +58,12 @@ const Login = () => {
             name="password"
           />
           <LoginButton
-            style={{ backgroundColor: buttonDisabled ? "red" : "blue" }}
+            style={{ backgroundColor: buttonDisabled ? "red" : "white" }}
             disabled={changeDisabled}
           >
             Login
           </LoginButton>
+          <SignUpLink href="/signup">회원가입</SignUpLink>
         </SignInContainer>
         <SignUpContainer></SignUpContainer>
       </SignWrap>
@@ -141,4 +143,9 @@ const NotSignCondition = styled.p`
 
 const SignCondition = styled(NotSignCondition)`
   color: green;
+`;
+
+const SignUpLink = styled(Link)`
+  margin-top: 20px;
+  color: blueviolet;
 `;
