@@ -3,9 +3,11 @@ import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import { UserProps } from "../shared/LoginTypes";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import SignUp from "./auth/SignUp";
 const Login = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
+  const router = useRouter();
 
   const [userData, setUserData] = useState({
     id: "",
@@ -18,15 +20,20 @@ const Login = () => {
 
   const passwordRegx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-  const validateId = userData.id === "" || loginRegex.test(userData.id);
+  const validateId = loginRegex.test(userData.id);
 
   const saveUserData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     setUserData({ ...userData, [name]: value });
+    console.log(buttonDisabled);
   };
 
+  const goToDashBoard = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    router.push("/dashboard");
+  };
   const changeDisabled =
-    userData.id.length > 1 && userData.password.length > 1
+    validateId && userData.password.length >= 1
       ? buttonDisabled
       : !buttonDisabled;
   return (
@@ -58,11 +65,16 @@ const Login = () => {
             name="password"
           />
           <LoginButton
-            style={{ backgroundColor: buttonDisabled ? "red" : "white" }}
+            style={{
+              backgroundColor: buttonDisabled ? "red" : "white",
+              cursor: buttonDisabled ? "not-allowed" : "pointer",
+            }}
             disabled={changeDisabled}
+            onClick={goToDashBoard}
           >
             Login
           </LoginButton>
+
           <SignUpLink href="/signup">회원가입</SignUpLink>
         </SignInContainer>
         <SignUpContainer></SignUpContainer>
