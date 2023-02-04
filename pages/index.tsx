@@ -5,6 +5,8 @@ import { UserProps } from "../shared/LoginTypes";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SignUp from "./auth/SignUp";
+import { loginRegex, passwordRegex } from "../regex/signRegex";
+
 const Login = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
   const router = useRouter();
@@ -15,17 +17,12 @@ const Login = () => {
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const loginRegex =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-
-  const passwordRegx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   const validateId = loginRegex.test(userData.id);
 
   const saveUserData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     setUserData({ ...userData, [name]: value });
-    console.log(buttonDisabled);
   };
 
   const goToDashBoard = (e: React.MouseEvent<HTMLElement>) => {
