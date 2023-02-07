@@ -10,7 +10,7 @@ const useInput = (initialForm: any) => {
       const { name, value } = e.target;
       setForm((form: any) => ({ ...form, [name]: value }));
     },
-    [value]
+    []
   );
 
   const reset = useCallback(() => setForm(initialForm), [initialForm]);
