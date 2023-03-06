@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import { UserProps } from "../shared/LoginTypes";
 import Link from "next/link";
 import SignUp from "./auth/SignUp";
 const Login = () => {
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
+  //const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
 
   const [userData, setUserData] = useState({
     id: "",
