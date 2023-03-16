@@ -2,17 +2,12 @@ import styled from "styled-components";
 import { useState } from "react";
 import { UserProps } from "../shared/LoginTypes";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import SignUp from "./auth/SignUp";
 import { loginRegex, passwordRegex } from "../regex/signRegex";
 
 const Login = () => {
-<<<<<<< HEAD
   //const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
-=======
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
-  const router = useRouter();
->>>>>>> 85efd6d4d711b7b185bfc689bf285a87b9202d81
 
   const [userData, setUserData] = useState({
     id: "",
