@@ -1,10 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import NextAuth from "next-auth/next";
+import Credentials from "next-auth/providers/credentials";
+import { SessionProvider } from "next-auth/react";
+import GoogleProvider from "next-auth/providers/google";
 
-const SignUp = () => {
-  return <div>111</div>;
-};
-
-export default SignUp;
-
-const SignUpWrapper = styled.div``;
+export default NextAuth({
+  providers: [],
+});
